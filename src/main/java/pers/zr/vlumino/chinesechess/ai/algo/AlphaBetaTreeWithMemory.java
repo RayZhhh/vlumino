@@ -178,7 +178,7 @@ public abstract class AlphaBetaTreeWithMemory extends AlphaBetaTree {
      */
     protected void upLoBound(int loBound, int colorSign, int depth) {
         int chHash = chessboard.hashCode();
-        int chVer = chessboard.verifyCode();git
+        int chVer = chessboard.verifyCode();
         if (colorSign == MAX_LAYER_SIGN) {
             Map<Integer, TableMsg> msgMap = tranTableForMax.get(chHash);
             TableMsg msg;
