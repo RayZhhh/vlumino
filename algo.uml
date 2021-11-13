@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>pers.zr.vlumino.chinesechess.ai.algo</OriginalElement>
+  <nodes>
+    <node x="841.3333333333334" y="239.0">pers.zr.vlumino.chinesechess.ai.algo.AlphaBeta</node>
+    <node x="461.5" y="777.0">pers.zr.vlumino.chinesechess.ai.algo.MTDF_Quiscence</node>
+    <node x="1227.3333333333335" y="239.0">pers.zr.vlumino.chinesechess.ai.algo.PVS</node>
+    <node x="504.33333333333337" y="217.0">pers.zr.vlumino.chinesechess.ai.algo.TreeSearchingWithMemory</node>
+    <node x="0.0" y="944.0">pers.zr.vlumino.chinesechess.ai.algo.TableMsg</node>
+    <node x="0.0" y="433.0">pers.zr.vlumino.chinesechess.ai.algo.AlphaBetaWithMemory</node>
+    <node x="33.0" y="605.0">pers.zr.vlumino.chinesechess.ai.algo.MTDF</node>
+    <node x="368.0" y="605.0">pers.zr.vlumino.chinesechess.ai.algo.AlphaBetaWithQuiescenceAndMemory</node>
+    <node x="689.5833333333333" y="455.0">pers.zr.vlumino.chinesechess.ai.algo.Quiescence</node>
+    <node x="882.5" y="0.0">pers.zr.vlumino.chinesechess.ai.algo.TreeSearching</node>
+    <node x="42.5" y="777.0">pers.zr.vlumino.chinesechess.ai.algo.IterDeepening</node>
+    <node x="890.0" y="605.0">pers.zr.vlumino.chinesechess.ai.algo.AlphaBetaWithQuiescence</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="pers.zr.vlumino.chinesechess.ai.algo.AlphaBetaWithQuiescenceAndMemory" target="pers.zr.vlumino.chinesechess.ai.algo.Quiescence" relationship="GENERALIZATION">
+      <point x="0.0" y="-61.0" />
+      <point x="619.0" y="580.0" />
+      <point x="877.0833333333333" y="580.0" />
+      <point x="0.0" y="39.0" />
+    </edge>
+    <edge source="pers.zr.vlumino.chinesechess.ai.algo.PVS" target="pers.zr.vlumino.chinesechess.ai.algo.TreeSearching" relationship="GENERALIZATION">
+      <point x="0.0" y="-61.0" />
+      <point x="1390.3333333333335" y="192.0" />
+      <point x="1024.5" y="192.0" />
+      <point x="0.0" y="83.5" />
+    </edge>
+    <edge source="pers.zr.vlumino.chinesechess.ai.algo.IterDeepening" target="pers.zr.vlumino.chinesechess.ai.algo.MTDF" relationship="GENERALIZATION">
+      <point x="0.0" y="-61.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="pers.zr.vlumino.chinesechess.ai.algo.MTDF" target="pers.zr.vlumino.chinesechess.ai.algo.AlphaBetaWithMemory" relationship="GENERALIZATION">
+      <point x="0.0" y="-61.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="pers.zr.vlumino.chinesechess.ai.algo.AlphaBetaWithMemory" target="pers.zr.vlumino.chinesechess.ai.algo.TreeSearchingWithMemory" relationship="GENERALIZATION">
+      <point x="0.0" y="-61.0" />
+      <point x="190.5" y="408.0" />
+      <point x="662.8333333333334" y="408.0" />
+      <point x="0.0" y="83.0" />
+    </edge>
+    <edge source="pers.zr.vlumino.chinesechess.ai.algo.AlphaBetaWithQuiescence" target="pers.zr.vlumino.chinesechess.ai.algo.Quiescence" relationship="GENERALIZATION">
+      <point x="0.0" y="-61.0" />
+      <point x="1135.5" y="580.0" />
+      <point x="877.0833333333333" y="580.0" />
+      <point x="0.0" y="39.0" />
+    </edge>
+    <edge source="pers.zr.vlumino.chinesechess.ai.algo.Quiescence" target="pers.zr.vlumino.chinesechess.ai.algo.TreeSearchingWithMemory" relationship="GENERALIZATION">
+      <point x="1.1368683772161603E-13" y="-39.0" />
+      <point x="877.0833333333334" y="408.0" />
+      <point x="662.8333333333334" y="408.0" />
+      <point x="0.0" y="83.0" />
+    </edge>
+    <edge source="pers.zr.vlumino.chinesechess.ai.algo.TreeSearchingWithMemory" target="pers.zr.vlumino.chinesechess.ai.algo.TreeSearching" relationship="GENERALIZATION">
+      <point x="0.0" y="-83.0" />
+      <point x="662.8333333333334" y="192.0" />
+      <point x="1024.5" y="192.0" />
+      <point x="0.0" y="83.5" />
+    </edge>
+    <edge source="pers.zr.vlumino.chinesechess.ai.algo.AlphaBeta" target="pers.zr.vlumino.chinesechess.ai.algo.TreeSearching" relationship="GENERALIZATION">
+      <point x="0.0" y="-61.0" />
+      <point x="0.0" y="83.5" />
+    </edge>
+    <edge source="pers.zr.vlumino.chinesechess.ai.algo.MTDF_Quiscence" target="pers.zr.vlumino.chinesechess.ai.algo.AlphaBetaWithQuiescenceAndMemory" relationship="GENERALIZATION">
+      <point x="0.0" y="-61.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic" zoom="0.6503362151777137" showDependencies="false" x="777.0" y="510.5" />
+  <SelectedNodes>
+    <node>pers.zr.vlumino.chinesechess.ai.algo.TreeSearching</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Constructors</Category>
+    <Category>Inner Classes</Category>
+    <Category>Methods</Category>
+    <Category>Properties</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
