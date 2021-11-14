@@ -4,6 +4,7 @@ import pers.zr.vlumino.chinesechess.ai.CChessboard;
 import pers.zr.vlumino.chinesechess.ai.ChessPath;
 import pers.zr.vlumino.chinesechess.ai.evaluator.MultiThreadEvaluator;
 import pers.zr.vlumino.chinesechess.ai.algo.TreeType;
+import pers.zr.vlumino.chinesechess.ai.evaluator.SmartEvaluator;
 
 import java.io.*;
 import javax.servlet.ServletException;
@@ -24,8 +25,8 @@ public class CChessGame extends HttpServlet {
         System.out.println("received chessboard:");
         cChessboard.printChessboard();
         // 进行评估
-        MultiThreadEvaluator evaluator = new MultiThreadEvaluator(cChessboard, 10, TreeType.ITER_DEEPENING);
-        //SmartEvaluator evaluator = new SmartEvaluator(cChessboard);
+        //MultiThreadEvaluator evaluator = new MultiThreadEvaluator(cChessboard, 8, TreeType.MTDF);
+        SmartEvaluator evaluator = new SmartEvaluator(cChessboard);
         ChessPath path = evaluator.getBestPath();
         System.out.println("评估结果：" + path);
         String respMsg = "" + path.fromX + ";" + path.fromY + ";" + path.toX + ";" + path.toY;
