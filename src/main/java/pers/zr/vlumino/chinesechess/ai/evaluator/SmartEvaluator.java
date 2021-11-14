@@ -48,7 +48,7 @@ public class SmartEvaluator extends MultiThreadEvaluator {
             super.treeType = TreeType.MTDF;
         } else if (chessNum >= 13) {
             super.depth = curDepth;
-            super.treeType = TreeType.MTDF_QUIESCENCE;
+            super.treeType = TreeType.MTDF;
         } else if (chessNum >= 10) {
             super.depth = curDepth + 2;
             super.treeType = TreeType.MTDF;
