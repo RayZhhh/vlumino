@@ -84,7 +84,7 @@ public class AlphaBetaWithQuiescenceAndMemory extends Quiescence {
             // 处理叶子节点
             if (depth == 1) {
                 // 如果正在被将军，向下扩展一层，使用alpha-beta搜索
-                if (isChecked(possiblePath)) {
+                if (isChecked(MIN_LAYER_SIGN)) {
                     depth = 3;
                 } else if (path.eat != 0) { // 如果正在发生吃子，进行静态搜索
                     chessboard.undoMoveChess(path);
@@ -126,7 +126,7 @@ public class AlphaBetaWithQuiescenceAndMemory extends Quiescence {
             // 处理叶子节点
             if (depth == 1) {
                 // 如果正在被将军，向下扩展一层，使用alpha-beta搜索
-                if (isChecked(possiblePath)) {
+                if (isChecked(MAX_LAYER_SIGN)) {
                     depth = 3;
                 } else if (path.eat != 0) { // 如果正在发生吃子，进行静态搜索
                     chessboard.undoMoveChess(path);
