@@ -99,8 +99,8 @@ public class ConsoleTest {
             cChessboard.moveChess(convertPath(path));
             cChessboard.printChessboard();
             // ai
-            AlphaBetaTreeWithMemory.clearTable();
-            AlphaBetaTreeWithMemory.loadTable();
+//            AlphaBetaTreeWithMemory.clearTable();
+//            AlphaBetaTreeWithMemory.loadTable();
             ChessPath best = new MultiThreadEvaluator(cChessboard, 8, TreeType.MTDF).getBestPath();
             //AlphaBetaTreeWithMemory.saveTable();
             //ChessPath best = new SingleThreadEvaluator(cChessboard).getBest();
