@@ -27,8 +27,8 @@ public class AISelfMatch {
                 break;
             }
             // ai_后手
-            ChessPath best_1 = new MultiThreadEvaluator(cChessboard, 6, TreeType.MTDF).getBestPath(AlphaBetaTree.MAX_LAYER_SIGN);
-            //ChessPath best_1 = new SmartEvaluator(cChessboard).getBestPath();
+            //ChessPath best_1 = new MultiThreadEvaluator(cChessboard, 4, TreeType.MTDF_QUIESCENCE).getBestPath(AlphaBetaTree.MAX_LAYER_SIGN);
+            ChessPath best_1 = new SmartEvaluator(cChessboard, 8).getBestPath();
             cChessboard.moveChess(best_1);
             System.out.println("后手落子：" + best_1);
             cChessboard.printChessboard();
