@@ -9,9 +9,9 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class GameBitPathGenerator {
-    public static final String FILE_PATH = "src/main/java/pers/zr/vlumino/chinesechess/ai/files/gamebit_path.txt";
+    public static final String FILE_PATH = "/Users/zhangrui/Desktop/vlumino/src/main/java/pers/zr/vlumino/chinesechess/ai/files/gamebit_path.txt";
 
-    public static final String DATA_FILE_PATH = "src/main/java/pers/zr/vlumino/chinesechess/ai/files/gamebit_formatted.txt";
+    public static final String DATA_FILE_PATH = "/Users/zhangrui/Desktop/vlumino/src/main/java/pers/zr/vlumino/chinesechess/ai/files/gamebit_formatted.txt";
 
     public static Map<Integer, GameBitTable> gameBitTableMap = new ConcurrentHashMap<>();
 

@@ -23,7 +23,7 @@ public abstract class Quiescence extends AlphaBetaTreeWithMemory {
      *
      * @param path      当前尝试的路径
      * @param beta      剪枝变量beta
-     * @param maxDepth  搜索的最大深度（必须要限制，否则可能会嗖嗖很大的深度）
+     * @param maxDepth  搜索的最大深度（必须要限制，否则可能会搜索到很大的深度）
      * @param colorSign 当前尝试棋子的类型
      * @return 经过搜索后得到的价值
      */

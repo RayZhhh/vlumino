@@ -2,6 +2,9 @@ package pers.zr.vlumino.chinesechess.ai.algo;
 
 
 import pers.zr.vlumino.chinesechess.ai.CChessboard;
+import pers.zr.vlumino.chinesechess.ai.ChessPath;
+import pers.zr.vlumino.chinesechess.ai.zobrist.VerifyCode;
+import pers.zr.vlumino.chinesechess.ai.zobrist.ZobristCode;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
@@ -280,6 +283,42 @@ public abstract class AlphaBetaTreeWithMemory extends AlphaBetaTree {
             } else if (depth == msg.upDepth) {
                 msg.upperBound = Math.max(msg.upperBound, upBound);
             }
+        }
+    }
+
+    /**
+     * 根据已有的Zobrist值和变化路径获取新的Zobrist值
+     * @param path
+     * @param prevZobrist
+     * @return
+     */
+    public int getNewZobrist(ChessPath path, int prevZobrist) {
+        int id = this.chessboard.innterChessboard[path.fromX][path.fromY];
+        int fromZo = ZobristCode.getZobristOfId(id, path.fromX, path.fromY);
+        int toZo = ZobristCode.getZobristOfId(id, path.toX, path.toY);
+        if (path.eat == 0) {
+            return prevZobrist ^ fromZo ^ toZo;
+        } else {
+            int eatZo = ZobristCode.getZobristOfId(path.eat, path.toX, path.toY);
+            return prevZobrist ^ fromZo ^ toZo ^ eatZo;
+        }
+    }
+
+    /**
+     * 根据已有的校验码和路径获得新的校验码值
+     * @param path
+     * @param prevVerifyCode
+     * @return
+     */
+    public int getNewVerify(ChessPath path, int prevVerifyCode) {
+        int id = this.chessboard.innterChessboard[path.fromX][path.fromY];
+        int fromVer = VerifyCode.getVerifyOfId(id, path.fromX, path.fromY);
+        int toVer = VerifyCode.getVerifyOfId(id, path.toX, path.toY);
+        if (path.eat == 0) {
+            return prevVerifyCode ^ fromVer ^ toVer;
+        } else {
+            int eatVer = VerifyCode.getVerifyOfId(path.eat, path.toX, path.toY);
+            return prevVerifyCode ^ fromVer ^ toVer ^ eatVer;
         }
     }
 }

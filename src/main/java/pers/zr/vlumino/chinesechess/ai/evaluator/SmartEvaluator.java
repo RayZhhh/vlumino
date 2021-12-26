@@ -45,15 +45,21 @@ public class SmartEvaluator extends MultiThreadEvaluator {
         int chessNum = this.cChessboard.chessNumOnBoard();
         if (chessNum >= 18) {
             super.depth = curDepth;
-            super.treeType = TreeType.MTDF;
+            super.treeType = TreeType.MTDF_OPT;
+//            super.depth = 4;
+//            super.treeType = TreeType.MTDF_QUIESCENCE;
         } else if (chessNum >= 14) {
             super.depth = curDepth;
             super.treeType = TreeType.MTDF;
+//            super.depth = 4;
+//            super.treeType = TreeType.MTDF_QUIESCENCE;
         } else if (chessNum >= 10) {
             super.depth = curDepth + 2;
             super.treeType = TreeType.MTDF;
+//            super.depth = 4;
+//            super.treeType = TreeType.MTDF_QUIESCENCE;
         } else {
-            super.depth = curDepth + 4;
+            super.depth = curDepth + 2;
             super.treeType = TreeType.MTDF;
         }
         return super.getBestPath(colorSign);

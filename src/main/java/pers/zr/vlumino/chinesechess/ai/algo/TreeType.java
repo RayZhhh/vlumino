@@ -9,5 +9,7 @@ public enum TreeType {
     QUIESCENCE_WITH_MEMORY,
     MTDF,
     ITER_DEEPENING,
-    MTDF_QUIESCENCE
+    MTDF_QUIESCENCE,
+    OPT_AB_WITH_MEM,
+    MTDF_OPT
 }

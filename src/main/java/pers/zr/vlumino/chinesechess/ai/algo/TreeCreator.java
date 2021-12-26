@@ -33,6 +33,12 @@ public class TreeCreator {
         if (treeType == TreeType.MTDF_QUIESCENCE) {
             return new MTDF_Quiscence(cChessboard);
         }
+        if (treeType == TreeType.OPT_AB_WITH_MEM) {
+            return new OptimizedAlphaBetaWithMemory(cChessboard);
+        }
+        if (treeType == TreeType.MTDF_OPT) {
+            return new MTDF_Opt(cChessboard);
+        }
         return null;
     }
 }

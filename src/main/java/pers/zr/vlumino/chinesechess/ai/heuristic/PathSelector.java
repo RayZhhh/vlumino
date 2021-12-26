@@ -34,15 +34,30 @@ public abstract class PathSelector implements Selector {
      * @return
      */
     protected int getPathValue(ChessPath path) {
+//        int id = cChessboard.innterChessboard[path.fromX][path.fromY];
+//        int eatVal = -ChessWeights.getPosVal(path.eat, path.toX, path.toY);
+//        int after = ChessWeights.getPosVal(id, path.toX, path.toY);
+//        int before = -ChessWeights.getPosVal(id, path.fromX, path.fromY);
+//        return eatVal + after + before;
+        // ---------- 尝试测试 -----------
         int id = cChessboard.innterChessboard[path.fromX][path.fromY];
-        int eatVal = -ChessWeights.getPosVal(path.eat, path.toX, path.toY);
+        int eatVal = ChessWeights.getPosVal(path.eat, path.toX, path.toY);
         int after = ChessWeights.getPosVal(id, path.toX, path.toY);
-        int before = -ChessWeights.getPosVal(id, path.fromX, path.fromY);
-        return eatVal + after + before;
+        int before = ChessWeights.getPosVal(id, path.fromX, path.fromY);
+        return after - before - eatVal;
+        // ------------------------------
     }
 
-
+    /**
+     * 计算每个路径在棋盘上的增长分数，并将分数保存于path的value属性中
+     * @param path
+     * @return
+     */
     protected void setPathValue(ChessPath path) {
-        path.value = getPathValue(path);
+        int id = cChessboard.innterChessboard[path.fromX][path.fromY];
+        int eatVal = path.eat == 0 ? 0 : ChessWeights.getPosVal(path.eat, path.toX, path.toY);
+        int after = ChessWeights.getPosVal(id, path.toX, path.toY);
+        int before = ChessWeights.getPosVal(id, path.fromX, path.fromY);
+        path.value = after - before - eatVal;
     }
 }

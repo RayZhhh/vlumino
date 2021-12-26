@@ -19,16 +19,17 @@ public class AISelfMatch {
     public void startSelfMatch() {
         cChessboard.printChessboard();
         // 第一手棋我们帮他走
-        cChessboard.moveChess(new ChessPath("21240"));
+//        cChessboard.moveChess(new ChessPath("21240"));
+        cChessboard.moveChess(new ChessPath("32420"));
         cChessboard.printChessboard();
         while (true) {
-            if (step++ == 200) {
+            if (step++ == 100) {
                 System.out.println("和棋");
                 break;
             }
             // ai_后手
-            //ChessPath best_1 = new MultiThreadEvaluator(cChessboard, 4, TreeType.MTDF_QUIESCENCE).getBestPath(AlphaBetaTree.MAX_LAYER_SIGN);
-            ChessPath best_1 = new SmartEvaluator(cChessboard, 8).getBestPath();
+            ChessPath best_1 = new MultiThreadEvaluator(cChessboard, 8, TreeType.MTDF_OPT).getBestPath(AlphaBetaTree.MAX_LAYER_SIGN);
+            //ChessPath best_1 = new SmartEvaluator(cChessboard, 8).getBestPath();
             cChessboard.moveChess(best_1);
             System.out.println("后手落子：" + best_1);
             cChessboard.printChessboard();
@@ -37,7 +38,7 @@ public class AISelfMatch {
                 break;
             }
             // ai_先手
-            ChessPath best_2 = new MultiThreadEvaluator(cChessboard, 8, TreeType.MTDF).getBestPath(AlphaBetaTree.MIN_LAYER_SIGN);
+            ChessPath best_2 = new MultiThreadEvaluator(cChessboard, 8, TreeType.MTDF_OPT).getBestPath(AlphaBetaTree.MIN_LAYER_SIGN);
             cChessboard.moveChess(best_2);
             System.out.println("先手落子：" + best_2);
             cChessboard.printChessboard();

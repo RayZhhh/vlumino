@@ -45,7 +45,7 @@ public abstract class AlphaBetaTree implements TreeSearching {
     /**
      * 静态搜索的深度限制
      */
-    public static int MAX_DEPTH_RESTRICT = 12;
+    public static int MAX_DEPTH_RESTRICT = 14;
 
     /**
      * 内置棋盘对象
@@ -100,7 +100,7 @@ public abstract class AlphaBetaTree implements TreeSearching {
     public boolean isChecked(int colorSign) {
         List<ChessPath> allPath = chessboard.getAllPath(-colorSign, new AllPath(this.chessboard));
         for (ChessPath chessPath : allPath) {
-            if (chessPath.eat == colorSign * 5) {
+            if (chessPath.eat == 5 || chessPath.eat == -5) {
                 return true;
             }
         }

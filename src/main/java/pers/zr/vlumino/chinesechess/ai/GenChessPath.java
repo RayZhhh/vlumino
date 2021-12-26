@@ -171,7 +171,7 @@ public class GenChessPath {
             }
         } else {
             // 左上
-            if ((x == 4 && y == 2) || (x == 2 && y == 4) || (x == 3 && y == 8) || (x == 4 && y == 6)) {
+            if ((x == 4 && y == 2) || (x == 2 && y == 4) || (x == 2 && y == 8) || (x == 4 && y == 6)) {
                 if (board[x - 1][y - 1] == 0 && board[x - 2][y - 2] * colorSign <= 0) {
                     ret.add(new ChessPath(x, y, x - 2, y - 2, board[x - 2][y - 2]));
                 }

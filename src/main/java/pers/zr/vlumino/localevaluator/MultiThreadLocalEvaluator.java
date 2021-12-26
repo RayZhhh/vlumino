@@ -113,7 +113,7 @@ public class MultiThreadLocalEvaluator {
             System.out.println("received chessboard:");
             cChessboard.printChessboard();
             SmartEvaluator evaluator = new SmartEvaluator(cChessboard);
-            //evaluator.useGambit = false;
+            // evaluator.useGambit = false;
             ChessPath path = evaluator.getBestPath();
             System.out.println("评估结果：" + path);
             // 发送评估结果和sessionID

@@ -2,6 +2,7 @@ package pers.zr.vlumino.chinesechess.console;
 
 import pers.zr.vlumino.chinesechess.ai.CChessboard;
 import pers.zr.vlumino.chinesechess.ai.ChessPath;
+import pers.zr.vlumino.chinesechess.ai.ChessWeights;
 import pers.zr.vlumino.chinesechess.ai.algo.AlphaBetaTreeWithMemory;
 import pers.zr.vlumino.chinesechess.ai.evaluator.MultiThreadEvaluator;
 import pers.zr.vlumino.chinesechess.ai.algo.TreeType;
@@ -38,20 +39,20 @@ public class ConsoleTest {
 //    }
 
     public void importVluminoProb() {
-        setChess(0,3,-5);
-        setChess(1,4,-4);
-        setChess(2,3,-6);
-        setChess(2,5,-4);
-        setChess(3,3,2);
-        setChess(3,5,7);
-        setChess(4,0,-7);
-        setChess(5,2,3);
-        setChess(5,4,6);
-        setChess(6,0,7);
-        setChess(7,4,3);
-        setChess(7,5,5);
-        setChess(8,4,4);
-        setChess(9,3,4);
+        setChess(0, 3, -5);
+        setChess(1, 4, -4);
+        setChess(2, 3, -6);
+        setChess(2, 5, -4);
+        setChess(3, 3, 2);
+        setChess(3, 5, 7);
+        setChess(4, 0, -7);
+        setChess(5, 2, 3);
+        setChess(5, 4, 6);
+        setChess(6, 0, 7);
+        setChess(7, 4, 3);
+        setChess(7, 5, 5);
+        setChess(8, 4, 4);
+        setChess(9, 3, 4);
     }
 
     CChessboard cChessboard = new CChessboard();
@@ -76,6 +77,25 @@ public class ConsoleTest {
 
 //        cChessboard.clearAllChessOnBoard();
 //        importVluminoProb();
+
+
+        /**
+         *
+         */
+//        cChessboard.getOnBoardVal();
+//        ChessPath path = convertPath("21240");
+//        cChessboard.moveChess(path);
+//        cChessboard.getOnBoardVal();
+//        int id = cChessboard.innterChessboard[path.fromX][path.fromY];
+//        int eatVal = ChessWeights.getPosVal(path.eat, path.toX, path.toY);
+//        int after = ChessWeights.getPosVal(id, path.toX, path.toY);
+//        int before = ChessWeights.getPosVal(id, path.fromX, path.fromY);
+//        System.out.println("before after" + ());
+        /**
+         *
+         */
+
+
 
         cChessboard.printChessboard();
         while (true) {
@@ -110,7 +130,6 @@ public class ConsoleTest {
         }
 
     }
-
 
 
     public static void main(String[] args) {
