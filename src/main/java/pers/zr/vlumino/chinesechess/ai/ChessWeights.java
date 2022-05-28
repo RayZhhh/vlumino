@@ -1,6 +1,6 @@
 package pers.zr.vlumino.chinesechess.ai;
 
-public class ChessWeights {
+public final class ChessWeights {
 
     public final static int[][][] weights = {
             // 0

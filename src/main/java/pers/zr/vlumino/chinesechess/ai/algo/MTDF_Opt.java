@@ -34,7 +34,7 @@ public class MTDF_Opt extends OptimizedAlphaBetaWithMemory {
         int lowerBound = MIN_EVALUATE_VAL;
 
         // ---------------------------------- 获得当前路径的价值 ----------------------------------
-        int id = chessboard.innterChessboard[path.fromX][path.fromY];
+        int id = chessboard.innerChessboard[path.fromX][path.fromY];
         int eatVal = path.eat == 0 ? 0 : ChessWeights.getPosVal(path.eat, path.toX, path.toY);
         int after = ChessWeights.getPosVal(id, path.toX, path.toY);
         int before = ChessWeights.getPosVal(id, path.fromX, path.fromY);

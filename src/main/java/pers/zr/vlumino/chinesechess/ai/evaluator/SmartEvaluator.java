@@ -16,7 +16,7 @@ public class SmartEvaluator extends MultiThreadEvaluator {
     }
 
     public SmartEvaluator(CChessboard board, int depth) {
-        super(board, TreeType.MTDF);
+        super(board, TreeType.MTDF_OPT);
         super.depth = depth;
         this.curDepth = depth;
     }
@@ -50,7 +50,7 @@ public class SmartEvaluator extends MultiThreadEvaluator {
 //            super.treeType = TreeType.MTDF_QUIESCENCE;
         } else if (chessNum >= 14) {
             super.depth = curDepth;
-            super.treeType = TreeType.MTDF;
+            super.treeType = TreeType.MTDF_OPT;
 //            super.depth = 4;
 //            super.treeType = TreeType.MTDF_QUIESCENCE;
         } else if (chessNum >= 10) {

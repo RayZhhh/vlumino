@@ -33,7 +33,7 @@ public class AllPath extends PathSelector {
         if (colorSign > 0) {
             for (int i = 0; i < 10; i++) {
                 for (int j = 0; j < 9; j++) {
-                    if (this.cChessboard.innterChessboard[i][j] > 0) {
+                    if (this.cChessboard.innerChessboard[i][j] > 0) {
                         List<ChessPath> chessPath = GenChessPath.getChessPathOfID(i, j, cChessboard);
                         if (chessPath != null) {
                             ret.addAll(chessPath);
@@ -44,7 +44,7 @@ public class AllPath extends PathSelector {
         } else {
             for (int i = 0; i < 10; i++) {
                 for (int j = 0; j < 9; j++) {
-                    if (this.cChessboard.innterChessboard[i][j] < 0) {
+                    if (this.cChessboard.innerChessboard[i][j] < 0) {
                         List<ChessPath> chessPath = GenChessPath.getChessPathOfID(i, j, cChessboard);
                         if (chessPath != null) {
                             ret.addAll(chessPath);

@@ -3,7 +3,7 @@ package pers.zr.vlumino.chinesechess.ai;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GenChessPath {
+public final class GenChessPath {
 
     /**
      * 获取车的所有走法
@@ -485,30 +485,25 @@ public class GenChessPath {
      * @return
      */
     public static List<ChessPath> getChessPathOfID(int x, int y, CChessboard cChessboard) {
-        int id = cChessboard.innterChessboard[x][y];
-        int[][] board = cChessboard.innterChessboard;
+        int id = cChessboard.innerChessboard[x][y];
+        int[][] board = cChessboard.innerChessboard;
         if (id == 1 || id == -1) {
             return getPathOf_1(x, y, board);
-        }
-        if (id == 2 || id == -2) {
+        } else if (id == 2 || id == -2) {
             return getPathOf_2(x, y, board);
-        }
-        if (id == 3 || id == -3) {
+        } else if (id == 3 || id == -3) {
             return getPathOf_3(x, y, board);
-        }
-        if (id == 4 || id == -4) {
+        } else if (id == 4 || id == -4) {
             return getPathOf_4(x, y, board);
-        }
-        if (id == 5 || id == -5) {
+        } else if (id == 5 || id == -5) {
             return getPathOf_5(x, y, board);
-        }
-        if (id == 6 || id == -6) {
+        } else if (id == 6 || id == -6) {
             return getPathOf_6(x, y, board);
-        }
-        if (id == 7 || id == -7) {
+        } else if (id == 7 || id == -7) {
             return getPathOf_7(x, y, board);
+        } else {
+            return null;
         }
-        return null;
     }
 
 

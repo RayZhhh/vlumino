@@ -26,9 +26,9 @@ public class AlphaBeta extends AlphaBetaTree {
     public int alphaBetaEvaluation(ChessPath path, int alpha, int beta, int depth, int colorSign) {
         // 判断生死
         if (path.eat == -5) {
-            return MAX_EVALUATE_VAL;
+            return MAX_EVALUATE_VAL + depth;
         } else if (path.eat == 5) {
-            return MIN_EVALUATE_VAL;
+            return MIN_EVALUATE_VAL - depth;
         }
         // 到达深度
         if (depth == 1) {
@@ -43,10 +43,10 @@ public class AlphaBeta extends AlphaBetaTree {
         if (isGeneralFaceToFace()) {
             if (colorSign == MAX_LAYER_SIGN) {
                 chessboard.undoMoveChess(path);
-                return MAX_EVALUATE_VAL;
+                return MAX_EVALUATE_VAL + depth;
             } else {
                 chessboard.undoMoveChess(path);
-                return MIN_EVALUATE_VAL;
+                return MIN_EVALUATE_VAL - depth;
             }
         }
         // max层

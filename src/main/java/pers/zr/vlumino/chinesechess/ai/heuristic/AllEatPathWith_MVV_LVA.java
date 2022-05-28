@@ -29,9 +29,9 @@ public class AllEatPathWith_MVV_LVA extends AllEatPath {
             if (eatVal1 != eatVal2) {
                 return eatVal2 - eatVal1;
             } else { // 如果吃子相同，那么按照自身价值升序排列
-                int selfId1 = cChessboard.innterChessboard[o1.fromX][o1.fromY];
+                int selfId1 = cChessboard.innerChessboard[o1.fromX][o1.fromY];
                 int selfVal1 = colorSign * ChessWeights.getPosVal(selfId1, o1.toX, o1.toY);
-                int selfId2 = colorSign * cChessboard.innterChessboard[o2.fromX][o2.fromY];
+                int selfId2 = colorSign * cChessboard.innerChessboard[o2.fromX][o2.fromY];
                 int selfVal2 = ChessWeights.getPosVal(selfId2, o2.toX, o2.toY);
                 return selfVal1 - selfVal2;
             }
@@ -42,7 +42,7 @@ public class AllEatPathWith_MVV_LVA extends AllEatPath {
 
     private int mvvVal(ChessPath path) {
         int eatVal = -ChessWeights.getPosVal(path.eat, path.toX, path.toY);
-        int selfId = cChessboard.innterChessboard[path.fromX][path.fromY];
+        int selfId = cChessboard.innerChessboard[path.fromX][path.fromY];
         int selfVal = ChessWeights.getPosVal(selfId, path.toX, path.toY);
         // 受害者 - 攻击者
         return eatVal / selfVal;

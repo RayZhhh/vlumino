@@ -40,7 +40,7 @@ public abstract class PathSelector implements Selector {
 //        int before = -ChessWeights.getPosVal(id, path.fromX, path.fromY);
 //        return eatVal + after + before;
         // ---------- 尝试测试 -----------
-        int id = cChessboard.innterChessboard[path.fromX][path.fromY];
+        int id = cChessboard.innerChessboard[path.fromX][path.fromY];
         int eatVal = ChessWeights.getPosVal(path.eat, path.toX, path.toY);
         int after = ChessWeights.getPosVal(id, path.toX, path.toY);
         int before = ChessWeights.getPosVal(id, path.fromX, path.fromY);
@@ -54,7 +54,7 @@ public abstract class PathSelector implements Selector {
      * @return
      */
     protected void setPathValue(ChessPath path) {
-        int id = cChessboard.innterChessboard[path.fromX][path.fromY];
+        int id = cChessboard.innerChessboard[path.fromX][path.fromY];
         int eatVal = path.eat == 0 ? 0 : ChessWeights.getPosVal(path.eat, path.toX, path.toY);
         int after = ChessWeights.getPosVal(id, path.toX, path.toY);
         int before = ChessWeights.getPosVal(id, path.fromX, path.fromY);

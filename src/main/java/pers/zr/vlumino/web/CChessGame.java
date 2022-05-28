@@ -27,8 +27,8 @@ public class CChessGame extends HttpServlet {
         // 进行评估
         //MultiThreadEvaluator evaluator = new MultiThreadEvaluator(cChessboard, 8, TreeType.MTDF);
         SmartEvaluator evaluator = new SmartEvaluator(cChessboard);
-        evaluator.useGambit = false;
-        evaluator.setDepth(6);
+        // evaluator.useGambit = false;
+        //evaluator.setDepth(8);
         ChessPath path = evaluator.getBestPath();
         System.out.println("评估结果：" + path);
         String respMsg = "" + path.fromX + ";" + path.fromY + ";" + path.toX + ";" + path.toY;

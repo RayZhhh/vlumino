@@ -23,10 +23,10 @@ public class CChessboard {
      * @param cBoard
      */
     public CChessboard(CChessboard cBoard) {
-        this.innterChessboard = new int[10][9];
+        this.innerChessboard = new int[10][9];
         for (int i = 0; i < 10; i++) {
             for (int j = 0; j < 9; j++) {
-                this.innterChessboard[i][j] = cBoard.innterChessboard[i][j];
+                this.innerChessboard[i][j] = cBoard.innerChessboard[i][j];
             }
         }
     }
@@ -34,49 +34,49 @@ public class CChessboard {
     /**
      * 内置棋盘
      */
-    public int[][] innterChessboard;
+    public int[][] innerChessboard;
 
     public void init() {
-        this.innterChessboard = new int[10][9];
+        this.innerChessboard = new int[10][9];
         for (int i = 0; i < 10; i++) {
             for (int j = 0; j < 9; j++) {
-                innterChessboard[i][j] = 0;
+                innerChessboard[i][j] = 0;
             }
         }
         // 敌方
-        this.innterChessboard[0][0] = -CChess.JU;
-        this.innterChessboard[0][1] = -CChess.MA;
-        this.innterChessboard[0][2] = -CChess.XIANG;
-        this.innterChessboard[0][3] = -CChess.SHI;
-        this.innterChessboard[0][4] = -CChess.JIANG;
-        this.innterChessboard[0][5] = -CChess.SHI;
-        this.innterChessboard[0][6] = -CChess.XIANG;
-        this.innterChessboard[0][7] = -CChess.MA;
-        this.innterChessboard[0][8] = -CChess.JU;
-        this.innterChessboard[2][1] = -CChess.PAO;
-        this.innterChessboard[2][7] = -CChess.PAO;
-        this.innterChessboard[3][0] = -CChess.ZU;
-        this.innterChessboard[3][2] = -CChess.ZU;
-        this.innterChessboard[3][4] = -CChess.ZU;
-        this.innterChessboard[3][6] = -CChess.ZU;
-        this.innterChessboard[3][8] = -CChess.ZU;
+        this.innerChessboard[0][0] = -CChess.JU;
+        this.innerChessboard[0][1] = -CChess.MA;
+        this.innerChessboard[0][2] = -CChess.XIANG;
+        this.innerChessboard[0][3] = -CChess.SHI;
+        this.innerChessboard[0][4] = -CChess.JIANG;
+        this.innerChessboard[0][5] = -CChess.SHI;
+        this.innerChessboard[0][6] = -CChess.XIANG;
+        this.innerChessboard[0][7] = -CChess.MA;
+        this.innerChessboard[0][8] = -CChess.JU;
+        this.innerChessboard[2][1] = -CChess.PAO;
+        this.innerChessboard[2][7] = -CChess.PAO;
+        this.innerChessboard[3][0] = -CChess.ZU;
+        this.innerChessboard[3][2] = -CChess.ZU;
+        this.innerChessboard[3][4] = -CChess.ZU;
+        this.innerChessboard[3][6] = -CChess.ZU;
+        this.innerChessboard[3][8] = -CChess.ZU;
         // 我方
-        this.innterChessboard[9][0] = CChess.JU;
-        this.innterChessboard[9][1] = CChess.MA;
-        this.innterChessboard[9][2] = CChess.XIANG;
-        this.innterChessboard[9][3] = CChess.SHI;
-        this.innterChessboard[9][4] = CChess.JIANG;
-        this.innterChessboard[9][5] = CChess.SHI;
-        this.innterChessboard[9][6] = CChess.XIANG;
-        this.innterChessboard[9][7] = CChess.MA;
-        this.innterChessboard[9][8] = CChess.JU;
-        this.innterChessboard[7][1] = CChess.PAO;
-        this.innterChessboard[7][7] = CChess.PAO;
-        this.innterChessboard[6][0] = CChess.ZU;
-        this.innterChessboard[6][2] = CChess.ZU;
-        this.innterChessboard[6][4] = CChess.ZU;
-        this.innterChessboard[6][6] = CChess.ZU;
-        this.innterChessboard[6][8] = CChess.ZU;
+        this.innerChessboard[9][0] = CChess.JU;
+        this.innerChessboard[9][1] = CChess.MA;
+        this.innerChessboard[9][2] = CChess.XIANG;
+        this.innerChessboard[9][3] = CChess.SHI;
+        this.innerChessboard[9][4] = CChess.JIANG;
+        this.innerChessboard[9][5] = CChess.SHI;
+        this.innerChessboard[9][6] = CChess.XIANG;
+        this.innerChessboard[9][7] = CChess.MA;
+        this.innerChessboard[9][8] = CChess.JU;
+        this.innerChessboard[7][1] = CChess.PAO;
+        this.innerChessboard[7][7] = CChess.PAO;
+        this.innerChessboard[6][0] = CChess.ZU;
+        this.innerChessboard[6][2] = CChess.ZU;
+        this.innerChessboard[6][4] = CChess.ZU;
+        this.innerChessboard[6][6] = CChess.ZU;
+        this.innerChessboard[6][8] = CChess.ZU;
     }
 
     /**
@@ -92,10 +92,10 @@ public class CChessboard {
         for (int i = 0; i < 10; i++) {
             System.out.printf("%6s", NumToCChar.toCChar(i));
             for (int j = 0; j < 9; j++) {
-                if (innterChessboard[i][j] == 0) {
+                if (innerChessboard[i][j] == 0) {
                     System.out.printf("%6s", "·");
                 } else {
-                    System.out.printf("%6d", innterChessboard[i][j]);
+                    System.out.printf("%6d", innerChessboard[i][j]);
                 }
             }
             System.out.println();
@@ -110,8 +110,8 @@ public class CChessboard {
      * @param path
      */
     public void moveChess(ChessPath path) {
-        innterChessboard[path.toX][path.toY] = innterChessboard[path.fromX][path.fromY];
-        innterChessboard[path.fromX][path.fromY] = 0;
+        innerChessboard[path.toX][path.toY] = innerChessboard[path.fromX][path.fromY];
+        innerChessboard[path.fromX][path.fromY] = 0;
     }
 
     /**
@@ -131,9 +131,8 @@ public class CChessboard {
      * @param path
      */
     public void undoMoveChess(ChessPath path) {
-        innterChessboard[path.fromX][path.fromY] = innterChessboard[path.toX][path.toY];
-        innterChessboard[path.toX][path.toY] = path.eat;
-
+        innerChessboard[path.fromX][path.fromY] = innerChessboard[path.toX][path.toY];
+        innerChessboard[path.toX][path.toY] = path.eat;
     }
 
     /**
@@ -145,8 +144,8 @@ public class CChessboard {
         int val = 0;
         for (int i = 0; i < 10; i++) {
             for (int j = 0; j < 9; j++) {
-                if (innterChessboard[i][j] != 0) {
-                    val += ChessWeights.getPosVal(innterChessboard[i][j], i, j);
+                if (innerChessboard[i][j] != 0) {
+                    val += ChessWeights.getPosVal(innerChessboard[i][j], i, j);
                 }
             }
         }
@@ -169,15 +168,15 @@ public class CChessboard {
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < 10; i++) {
             for (int j = 0; j < 9; j++) {
-                if (innterChessboard[i][j] != 0) {
-                    sb.append(innterChessboard[i][j]);
+                if (innerChessboard[i][j] != 0) {
+                    sb.append(innerChessboard[i][j]);
                 }
             }
         }
         for (int i = 0; i < 9; i++) {
             for (int j = 0; j < 10; j++) {
-                if (innterChessboard[j][i] != 0) {
-                    sb.append(innterChessboard[j][i]);
+                if (innerChessboard[j][i] != 0) {
+                    sb.append(innerChessboard[j][i]);
                 }
             }
         }
@@ -195,13 +194,13 @@ public class CChessboard {
         int hash = 0;
         for (int i = 0; i < 10; i++) {
             for (int j = 0; j < 9; j++) {
-                if (innterChessboard[i][j] != 0) {
-                    if (!find) {
-                        hash = ZobristCode.getZobristOfId(innterChessboard[i][j], i, j);
+                if (innerChessboard[i][j] != 0) {
+                    /*if (!find) {
+                        hash = ZobristCode.getZobristOfId(innerChessboard[i][j], i, j);
                         find = true;
-                    } else {
-                        hash = hash ^ ZobristCode.getZobristOfId(innterChessboard[i][j], i, j);
-                    }
+                    } else {*/
+                        hash = hash ^ ZobristCode.getZobristOfId(innerChessboard[i][j], i, j);
+//                    }
                 }
             }
         }
@@ -218,13 +217,13 @@ public class CChessboard {
         int ver = 0;
         for (int i = 0; i < 10; i++) {
             for (int j = 0; j < 9; j++) {
-                if (innterChessboard[i][j] != 0) {
-                    if (!find) {
-                        ver = VerifyCode.getVerifyOfId(innterChessboard[i][j], i, j);
+                if (innerChessboard[i][j] != 0) {
+                  /*  if (!find) {
+                        ver = VerifyCode.getVerifyOfId(innerChessboard[i][j], i, j);
                         find = true;
-                    } else {
-                        ver = ver ^ VerifyCode.getVerifyOfId(innterChessboard[i][j], i, j);
-                    }
+                    } else {*/
+                        ver = ver ^ VerifyCode.getVerifyOfId(innerChessboard[i][j], i, j);
+//                    }
                 }
             }
         }
@@ -241,7 +240,7 @@ public class CChessboard {
         String[] arr = boardArr.split(";");
         for (int i = 0; i < 10; i++) {
             for (int j = 0; j < 9; j++) {
-                innterChessboard[i][j] = Integer.parseInt(arr[pos++]);
+                innerChessboard[i][j] = Integer.parseInt(arr[pos++]);
             }
         }
     }
@@ -255,7 +254,7 @@ public class CChessboard {
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < 10; i++) {
             for (int j = 0; j < 9; j++) {
-                sb.append(innterChessboard[i][j]);
+                sb.append(innerChessboard[i][j]);
                 if (i != 9 || j != 8) {
                     sb.append(";");
                 }
@@ -273,7 +272,7 @@ public class CChessboard {
         int count = 0;
         for (int i = 0; i < 10; i++) {
             for (int j = 0; j < 9; j++) {
-                if (innterChessboard[i][j] != 0) {
+                if (innerChessboard[i][j] != 0) {
                     count++;
                 }
             }
@@ -287,7 +286,7 @@ public class CChessboard {
     public void clearChessboard() {
         for (int i = 0; i < 10; i++) {
             for (int j = 0; j < 9; j++) {
-                innterChessboard[i][j] = 0;
+                innerChessboard[i][j] = 0;
             }
         }
     }

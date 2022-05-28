@@ -2,10 +2,9 @@ package pers.zr.vlumino.chinesechess.console;
 
 import pers.zr.vlumino.chinesechess.ai.CChessboard;
 import pers.zr.vlumino.chinesechess.ai.ChessPath;
-import pers.zr.vlumino.chinesechess.ai.ChessWeights;
-import pers.zr.vlumino.chinesechess.ai.algo.AlphaBetaTreeWithMemory;
 import pers.zr.vlumino.chinesechess.ai.evaluator.MultiThreadEvaluator;
 import pers.zr.vlumino.chinesechess.ai.algo.TreeType;
+import pers.zr.vlumino.chinesechess.ai.evaluator.SingleThreadEvaluator;
 
 import java.util.Scanner;
 
@@ -24,7 +23,7 @@ public class ConsoleTest {
     }
 
     public void setChess(int x, int y, int chess) {
-        this.cChessboard.innterChessboard[x][y] = chess;
+        this.cChessboard.innerChessboard[x][y] = chess;
     }
 
 //    public void selfPlay() {
@@ -75,8 +74,8 @@ public class ConsoleTest {
 //        cChessboard.doMoves(paths);
         //cChessboard.recoverChessboard("0;0;0;-4;-5;-4;0;0;-1;0;0;0;0;0;0;0;0;0;0;0;0;0;-3;0;0;0;-3;6;0;0;0;-2;0;0;0;-7;0;0;-7;0;7;0;-7;0;0;0;0;0;0;0;0;0;1;0;7;0;-2;0;0;0;7;0;7;0;0;2;0;0;-6;2;0;0;0;0;0;0;0;0;0;0;0;0;0;3;4;5;4;3;0;0");
 
-//        cChessboard.clearAllChessOnBoard();
-//        importVluminoProb();
+        //cChessboard.clearChessboard();
+        //importVluminoProb();
 
 
         /**
@@ -121,7 +120,8 @@ public class ConsoleTest {
             // ai
 //            AlphaBetaTreeWithMemory.clearTable();
 //            AlphaBetaTreeWithMemory.loadTable();
-            ChessPath best = new MultiThreadEvaluator(cChessboard, 8, TreeType.MTDF).getBestPath();
+            ChessPath best = new MultiThreadEvaluator(cChessboard, 8, TreeType.MTDF_OPT).getBestPath();
+//            ChessPath best = new SingleThreadEvaluator(cChessboard, TreeType.ALPHA_BETA).getBest();
             //AlphaBetaTreeWithMemory.saveTable();
             //ChessPath best = new SingleThreadEvaluator(cChessboard).getBest();
             //ChessPath best = new MultiThreadEvaluator(cChessboard, 8, TreeType.ALPHA_BETA_WITH_MEMORY).getBestPathWithTreeSearching();

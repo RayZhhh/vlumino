@@ -3,7 +3,6 @@ package pers.zr.vlumino.chinesechess.ai.algo;
 import pers.zr.vlumino.chinesechess.ai.CChessboard;
 import pers.zr.vlumino.chinesechess.ai.ChessPath;
 import pers.zr.vlumino.chinesechess.ai.ChessWeights;
-import pers.zr.vlumino.chinesechess.ai.heuristic.AllPath;
 import pers.zr.vlumino.chinesechess.ai.heuristic.AllPathAndSort;
 
 import java.util.List;
@@ -31,9 +30,9 @@ public class OptimizedAlphaBetaWithMemory extends AlphaBetaTreeWithMemory {
             ChessPath path, int alpha, int beta, int depth, int colorSign, int curValue, int chHash, int chVer) {
         // 判断是否游戏结束
         if (path.eat == 5) {
-            return MIN_EVALUATE_VAL;
+            return MIN_EVALUATE_VAL - depth;
         } else if (path.eat == -5) {
-            return MAX_EVALUATE_VAL;
+            return MAX_EVALUATE_VAL + depth;
         }
         // 到达搜索深度
         if (depth == 1) {
@@ -45,10 +44,10 @@ public class OptimizedAlphaBetaWithMemory extends AlphaBetaTreeWithMemory {
         if (isGeneralFaceToFace()) {
             if (colorSign == MAX_LAYER_SIGN) {
                 chessboard.undoMoveChess(path);
-                return MAX_EVALUATE_VAL;
+                return MAX_EVALUATE_VAL + depth;
             } else {
                 chessboard.undoMoveChess(path);
-                return MIN_EVALUATE_VAL;
+                return MIN_EVALUATE_VAL - depth;
             }
         }
         // -------------------- 查询置换表 ---------------------------------------------------
@@ -60,14 +59,14 @@ public class OptimizedAlphaBetaWithMemory extends AlphaBetaTreeWithMemory {
         TableMsg tableMsg;
         // 要求能查询到当前局面，且置换表中的深度要大于当前深度时才使用置换表
         if (mapVerTable != null && (tableMsg = mapVerTable.get(chVer)) != null) {
-            if (tableMsg.loDepth >= depth) {
+            if (tableMsg.loDepth <= depth) {
                 if (tableMsg.lowerBound >= beta) {
                     chessboard.undoMoveChess(path);
                     return tableMsg.lowerBound;
                 }
                 alpha = Math.max(alpha, tableMsg.lowerBound);
             }
-            if (tableMsg.upDepth >= depth) {
+            if (tableMsg.upDepth <= depth) {
                 if (tableMsg.upperBound <= alpha) {
                     chessboard.undoMoveChess(path);
                     return tableMsg.upperBound;
@@ -138,15 +137,13 @@ public class OptimizedAlphaBetaWithMemory extends AlphaBetaTreeWithMemory {
 
 
     protected int getCurValueParameter(ChessPath path) {
-        int id = chessboard.innterChessboard[path.fromX][path.fromY];
+        int id = chessboard.innerChessboard[path.fromX][path.fromY];
         int eatVal = path.eat == 0 ? 0 : ChessWeights.getPosVal(path.eat, path.toX, path.toY);
         int after = ChessWeights.getPosVal(id, path.toX, path.toY);
         int before = ChessWeights.getPosVal(id, path.fromX, path.fromY);
         path.value = after - before - eatVal;
         return chessboard.getOnBoardVal() + path.value;
     }
-
-
 
 
     @Override

@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="vlumino:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/vlumino_jar</output-path>
+    <root id="archive" name="vlumino.jar">
+      <element id="module-output" name="vlumino" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/alibaba/fastjson/1.2.4/fastjson-1.2.4.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>

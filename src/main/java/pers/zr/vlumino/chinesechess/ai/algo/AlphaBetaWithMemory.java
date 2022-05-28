@@ -27,9 +27,9 @@ public class AlphaBetaWithMemory extends AlphaBetaTreeWithMemory {
     public int alphaBetaWithMemory(ChessPath path, int alpha, int beta, int depth, int colorSign) {
         // 判断是否游戏结束
         if (path.eat == 5) {
-            return MIN_EVALUATE_VAL;
+            return MIN_EVALUATE_VAL - depth;
         } else if (path.eat == -5) {
-            return MAX_EVALUATE_VAL;
+            return MAX_EVALUATE_VAL + depth;
         }
         // 到达搜索深度
         if (depth == 1) {
@@ -44,10 +44,10 @@ public class AlphaBetaWithMemory extends AlphaBetaTreeWithMemory {
         if (isGeneralFaceToFace()) {
             if (colorSign == MAX_LAYER_SIGN) {
                 chessboard.undoMoveChess(path);
-                return MAX_EVALUATE_VAL;
+                return MAX_EVALUATE_VAL + depth;
             } else {
                 chessboard.undoMoveChess(path);
-                return MIN_EVALUATE_VAL;
+                return MIN_EVALUATE_VAL - depth;
             }
         }
         // -------------------- 查询置换表 ---------------------------------------------------

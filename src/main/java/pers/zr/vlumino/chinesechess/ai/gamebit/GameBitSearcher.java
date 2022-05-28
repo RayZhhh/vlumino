@@ -22,7 +22,7 @@ public class GameBitSearcher extends GameBitPathGenerator {
         int len = table.paths.size();
         int pos = (int) (Math.random() * 1000) % len;
         ChessPath chessPath = new ChessPath(table.paths.get(pos) + "0");
-        chessPath.eat = baord.innterChessboard[chessPath.toX][chessPath.toY];
+        chessPath.eat = baord.innerChessboard[chessPath.toX][chessPath.toY];
         return chessPath;
     }
 

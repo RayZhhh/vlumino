@@ -102,12 +102,7 @@ public class MultiThreadEvaluator implements ChineseChessEvaluator {
         // 进行多线程搜索
         try {
             for (ChessPath chessPath : chessPaths) {
-                threads.add(new Thread(
-                                new CalculateEachPath(
-                                        chessPath, this.depth,
-                                        TreeCreator.newTree(this.treeType, this.cChessboard), color == AlphaBetaTree.MAX_LAYER_SIGN ? AlphaBetaTree.MIN_LAYER_SIGN : AlphaBetaTree.MAX_LAYER_SIGN)
-                        )
-                );
+                threads.add(new Thread(new CalculateEachPath(chessPath, this.depth, TreeCreator.newTree(this.treeType, this.cChessboard), color == AlphaBetaTree.MAX_LAYER_SIGN ? AlphaBetaTree.MIN_LAYER_SIGN : AlphaBetaTree.MAX_LAYER_SIGN)));
             }
             for (Thread thread : threads) {
                 thread.start();
@@ -129,6 +124,8 @@ public class MultiThreadEvaluator implements ChineseChessEvaluator {
         }
         long end = System.currentTimeMillis();
         if (!random) {
+            System.out.println("时间：" + (end - begin) / 1000);
+            System.out.println("评估参数：depth=" + depth + " Tree Type=" + treeType);
             return chessPaths.get(0);
         }
         // 找到价值相等的，进行随机落子

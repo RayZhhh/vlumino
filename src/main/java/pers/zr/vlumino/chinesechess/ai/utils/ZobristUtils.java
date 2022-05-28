@@ -8,7 +8,7 @@ import java.nio.charset.StandardCharsets;
 
 public final class ZobristUtils {
 
-    private static final String zFilePath = "src/main/java/pers/zr/brownstone/chinesechess/ai/files/zobrist.txt";
+    private static final String zFilePath = "src/main/java/pers/zr/vlumino/chinesechess/ai/files/zobrist.txt";
 
     private static void genZobrist() throws IOException {
         File zFile = new File(zFilePath);
@@ -16,7 +16,7 @@ public final class ZobristUtils {
         for (int i = 0; i < 14; i++) {
             stream.write("{".getBytes(StandardCharsets.UTF_8));
             for (int j = 0; j < 10 * 9; j++) {
-                int rand = (int) (Math.random() * 10000000);
+                double rand = Math.random();
                 stream.write(("" + rand).getBytes(StandardCharsets.UTF_8));
                 if (j != 89) {
                     stream.write(",".getBytes(StandardCharsets.UTF_8));

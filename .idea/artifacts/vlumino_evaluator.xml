@@ -1,0 +1,11 @@
+<component name="ArtifactManager">
+  <artifact name="vlumino-evaluator">
+    <output-path>$PROJECT_DIR$/out/artifacts/vlumino_evaluator</output-path>
+    <root id="root">
+      <element id="archive" name="vlumino.jar">
+        <element id="module-output" name="vlumino" />
+      </element>
+      <element id="library" level="project" name="Maven: com.alibaba:fastjson:1.2.4" />
+    </root>
+  </artifact>
+</component>

@@ -50,7 +50,7 @@ public abstract class AlphaBetaTreeWithMemory extends AlphaBetaTree {
      *
      * @param maxTable 是否保存的是 maxTable
      */
-    protected static void saveMap(boolean maxTable) {
+    /*protected static void saveMap(boolean maxTable) {
         try {
             File file;
             Map<Integer, Map<Integer, TableMsg>> tranTable;
@@ -90,24 +90,24 @@ public abstract class AlphaBetaTreeWithMemory extends AlphaBetaTree {
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
+    }*/
 
     /**
      * 保存Max和Min置换表
      */
-    public static void saveTable() {
+    /*public static void saveTable() {
         clearFile(MAX_FILE_PATH);
         clearFile(MIN_FILE_PATH);
         saveMap(true);
         saveMap(false);
-    }
+    }*/
 
     /**
      * 清空文件
      *
      * @param path 文件路径
      */
-    protected static void clearFile(String path) {
+   /* protected static void clearFile(String path) {
         try {
             FileWriter fileWriter = new FileWriter(new File(path));
             fileWriter.write("");
@@ -116,14 +116,14 @@ public abstract class AlphaBetaTreeWithMemory extends AlphaBetaTree {
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
+    }*/
 
     /**
      * 加载置换表到内置Map中
      *
      * @param maxTable 是否加载 maxTable
      */
-    protected static void loadMap(boolean maxTable) {
+    /*protected static void loadMap(boolean maxTable) {
         try {
             File file;
             Map<Integer, Map<Integer, TableMsg>> tranTable;
@@ -151,26 +151,26 @@ public abstract class AlphaBetaTreeWithMemory extends AlphaBetaTree {
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
+    }*/
 
     /**
      * 加载置换表
      */
-    public static void loadTable() {
+    /*public static void loadTable() {
         loadMap(true);
         loadMap(false);
         System.out.println("置换表加载成功");
         System.out.println("max table size: " + tranTableForMax.size());
         System.out.println("min table size: " + tranTableForMin.size());
-    }
+    }*/
 
     /**
      * 清除置换表中内容
      */
-    public static void clearTable() {
+   /* public static void clearTable() {
         tranTableForMin.clear();
         tranTableForMax.clear();
-    }
+    }*/
 
     /**
      * 更新置换表下界
@@ -199,8 +199,9 @@ public abstract class AlphaBetaTreeWithMemory extends AlphaBetaTree {
                 tmp.lowerBound = loBound;
                 tmp.loDepth = depth;
                 msgMap.put(chVer, tmp);
-            } else if (depth > msg.loDepth) { // 查到相同局面，但是当前深度较大
+            } else if (depth < msg.loDepth) { // 查到相同局面，但是当前深度较大
                 msg.lowerBound = loBound;
+                msg.loDepth =depth;
             } else if (depth == msg.loDepth) {
                 msg.lowerBound = Math.max(msg.lowerBound, loBound);
             }
@@ -221,8 +222,9 @@ public abstract class AlphaBetaTreeWithMemory extends AlphaBetaTree {
                 tmp.lowerBound = loBound;
                 tmp.loDepth = depth;
                 msgMap.put(chVer, tmp);
-            } else if (depth > msg.loDepth) { // 查到相同局面，但是当前深度较大
+            } else if (depth < msg.loDepth) { // 查到相同局面，但是当前深度较大
                 msg.lowerBound = loBound;
+                msg.loDepth = depth;
             } else if (depth == msg.loDepth) {
                 msg.lowerBound = Math.max(msg.lowerBound, loBound);
             }
@@ -258,6 +260,7 @@ public abstract class AlphaBetaTreeWithMemory extends AlphaBetaTree {
                 msgMap.put(chVer, tmp);
             } else if (depth > msg.upDepth) { // 查到相同局面，但是当前深度较大
                 msg.upperBound = upBound;
+                msg.upDepth = depth;
             } else if (depth == msg.upDepth) {
                 msg.upperBound = Math.min(msg.upperBound, upBound);
             }
@@ -280,6 +283,7 @@ public abstract class AlphaBetaTreeWithMemory extends AlphaBetaTree {
                 msgMap.put(chVer, tmp);
             } else if (depth > msg.upDepth) { // 查到相同局面，但是当前深度较大
                 msg.upperBound = upBound;
+                msg.upDepth = depth;
             } else if (depth == msg.upDepth) {
                 msg.upperBound = Math.max(msg.upperBound, upBound);
             }
@@ -288,12 +292,13 @@ public abstract class AlphaBetaTreeWithMemory extends AlphaBetaTree {
 
     /**
      * 根据已有的Zobrist值和变化路径获取新的Zobrist值
+     *
      * @param path
      * @param prevZobrist
      * @return
      */
     public int getNewZobrist(ChessPath path, int prevZobrist) {
-        int id = this.chessboard.innterChessboard[path.fromX][path.fromY];
+        int id = this.chessboard.innerChessboard[path.fromX][path.fromY];
         int fromZo = ZobristCode.getZobristOfId(id, path.fromX, path.fromY);
         int toZo = ZobristCode.getZobristOfId(id, path.toX, path.toY);
         if (path.eat == 0) {
@@ -306,12 +311,13 @@ public abstract class AlphaBetaTreeWithMemory extends AlphaBetaTree {
 
     /**
      * 根据已有的校验码和路径获得新的校验码值
+     *
      * @param path
      * @param prevVerifyCode
      * @return
      */
     public int getNewVerify(ChessPath path, int prevVerifyCode) {
-        int id = this.chessboard.innterChessboard[path.fromX][path.fromY];
+        int id = this.chessboard.innerChessboard[path.fromX][path.fromY];
         int fromVer = VerifyCode.getVerifyOfId(id, path.fromX, path.fromY);
         int toVer = VerifyCode.getVerifyOfId(id, path.toX, path.toY);
         if (path.eat == 0) {

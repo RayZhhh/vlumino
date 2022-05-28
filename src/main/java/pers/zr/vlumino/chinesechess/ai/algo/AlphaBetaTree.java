@@ -45,7 +45,7 @@ public abstract class AlphaBetaTree implements TreeSearching {
     /**
      * 静态搜索的深度限制
      */
-    public static int MAX_DEPTH_RESTRICT = 14;
+    public static int MAX_DEPTH_RESTRICT = 20;
 
     /**
      * 内置棋盘对象
@@ -118,7 +118,7 @@ public abstract class AlphaBetaTree implements TreeSearching {
         for (int i = 0; i <= 2; i++) {
             boolean findFlag = false;
             for (int j = 3; j <= 5; j++) {
-                if (chessboard.innterChessboard[i][j] == -5) {
+                if (chessboard.innerChessboard[i][j] == -5) {
                     rivalX = i;
                     rivalY = j;
                     findFlag = true;
@@ -131,7 +131,7 @@ public abstract class AlphaBetaTree implements TreeSearching {
         boolean isFind = false;
         int selfX = 0;
         for (int i = 7; i <= 9; i++) {
-            if (chessboard.innterChessboard[i][rivalY] == 5) {
+            if (chessboard.innerChessboard[i][rivalY] == 5) {
                 isFind = true;
                 selfX = i;
                 break;
@@ -142,7 +142,7 @@ public abstract class AlphaBetaTree implements TreeSearching {
             return false;
         }
         for (int i = rivalX + 1; i < selfX; i++) {
-            if (chessboard.innterChessboard[i][rivalY] != 0) {
+            if (chessboard.innerChessboard[i][rivalY] != 0) {
                 return false;
             }
         }
