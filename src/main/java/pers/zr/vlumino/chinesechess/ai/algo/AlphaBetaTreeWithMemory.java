@@ -199,9 +199,9 @@ public abstract class AlphaBetaTreeWithMemory extends AlphaBetaTree {
                 tmp.lowerBound = loBound;
                 tmp.loDepth = depth;
                 msgMap.put(chVer, tmp);
-            } else if (depth < msg.loDepth) { // 查到相同局面，但是当前深度较大
+            } else if (depth > msg.loDepth) { // 查到相同局面，但是当前深度较大
                 msg.lowerBound = loBound;
-                msg.loDepth =depth;
+                msg.loDepth = depth;
             } else if (depth == msg.loDepth) {
                 msg.lowerBound = Math.max(msg.lowerBound, loBound);
             }
@@ -222,7 +222,7 @@ public abstract class AlphaBetaTreeWithMemory extends AlphaBetaTree {
                 tmp.lowerBound = loBound;
                 tmp.loDepth = depth;
                 msgMap.put(chVer, tmp);
-            } else if (depth < msg.loDepth) { // 查到相同局面，但是当前深度较大
+            } else if (depth > msg.loDepth) { // 查到相同局面，但是当前深度较大
                 msg.lowerBound = loBound;
                 msg.loDepth = depth;
             } else if (depth == msg.loDepth) {
