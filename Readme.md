@@ -2,7 +2,7 @@ re# vLumino-Chinese Chess
 
 # 微量-中国象棋
 
-# 目前我的仓库中添加了一个优化版本的象棋AI，用c++实现，搜索速度是该项目的三倍。但是目前没有前端/GUI。
+## 目前我的仓库中添加了一个优化版本的象棋AI，用c++实现，修复了这个项目中的小部分bug，优化了算法，搜索速度是该项目的三倍。目前有简单的前端。请见 [github.com/RayZhhh/vliang-chinesechess-cpp](https://github.com/RayZhhh/vliang-chinesechess-cpp)
 
 👤作者：睿
 
